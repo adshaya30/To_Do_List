@@ -1,14 +1,8 @@
 import './App.css'
+import AppRoutes from './routes'
 
-const App=()=>{
-
-  return (
-    <>
-      <div className="text-3xl font-bold underline text-blue-600">
-       Hello World
-      </div>
-    </>
-  )
+const App = () => {
+  return <AppRoutes />
 }
 
 export default App;
