@@ -39,9 +39,9 @@ const Sidebar = ({ onNavigate, activeItem = 'dashboard', onOpenChange }: Sidebar
   };
 
   return (
-    <aside className={`fixed left-0 top-0 h-screen z-50 flex flex-col bg-gradient-to-b from-blue-900 via-blue-800 to-blue-700 text-gray-300 shadow-lg transition-all duration-300 ${
+    <aside className={`fixed left-0 top-0 h-screen z-50 flex flex-col text-gray-300 shadow-lg transition-all duration-300 ${
       isOpen ? 'w-60 px-3 py-6' : 'w-20 p-3'
-    }`}>
+    } bg-[#03396c]`}>
       {/* Header */}
       <div className={`flex items-center justify-start pb-6 border-b border-white/10 mb-4 relative ${isOpen ? '' : 'flex-col gap-4'}`}>
         {isOpen && (
@@ -67,9 +67,10 @@ const Sidebar = ({ onNavigate, activeItem = 'dashboard', onOpenChange }: Sidebar
             title={item.label}
             className={`flex items-center gap-3 px-4 py-3  rounded-lg transition-all duration-300 font-medium text-sm whitespace-nowrap ${
               activeItem === item.id
-                ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30'
-                : 'text-blue-200 hover:bg-white/10 hover:text-white'
+                ? 'text-white shadow-lg'
+                : 'text-gray-300 hover:bg-white/10 hover:text-white'
             }`}
+            style={activeItem === item.id ? { backgroundColor: 'rgba(3, 57, 108, 0.6)' } : {}}
           >
             <span className="flex items-center justify-center">{item.icon}</span>
             {isOpen && <span>{item.label}</span>}

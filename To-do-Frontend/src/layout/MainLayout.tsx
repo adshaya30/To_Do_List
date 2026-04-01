@@ -12,8 +12,8 @@ const MainLayout = ({ children }: LayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const routeMap: Record<string, string> = {
-    'dashboard': '/',
-    'all-tasks': '/all-tasks',
+    'dashboard': '/dashboard',
+    'all-tasks': '/tasks',
     'today': '/today',
     'upcoming': '/upcoming',
     'overdue': '/overdue',
