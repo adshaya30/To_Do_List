@@ -20,6 +20,7 @@ const MainLayout = ({ children }: LayoutProps) => {
     'important': '/important',
     'completed': '/completed',
     'calendar': '/calendar',
+    'ai': '/ai',
     'compare': '/compare',
   };
 

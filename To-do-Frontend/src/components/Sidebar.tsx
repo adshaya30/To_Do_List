@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LayoutGrid, ListTodo, Sun, Calendar, AlertTriangle, Star, CheckCircle, ArrowRightLeft, LogOut, ChevronLeft, ChevronRight } from 'lucide-react';
+import { LayoutGrid, ListTodo, Sun, Calendar, AlertTriangle, Star, CheckCircle, ArrowRightLeft, LogOut, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 interface SidebarItem {
   id: string;
@@ -31,6 +31,7 @@ const Sidebar = ({ onNavigate, activeItem = 'dashboard', onOpenChange }: Sidebar
     { id: 'important', icon: <Star size={20} />, label: 'Important' },
     { id: 'completed', icon: <CheckCircle size={20} />, label: 'Completed' },
     { id: 'calendar', icon: <Calendar size={20} />, label: 'Calendar' },
+      { id: 'ai', icon: <Sparkles size={20} />, label: 'AI Assistant' },
     { id: 'compare', icon: <ArrowRightLeft size={20} />, label: 'Compare' },
   ];
 

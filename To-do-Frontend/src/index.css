@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+.delete-confirm-toast {
+	position: fixed !important;
+	right: 16px !important;
+	top: 16px !important;
+	left: auto !important;
+	transform: none !important;
+	width: min(92vw, 26rem) !important;
+	z-index: 9999 !important;
+	border-radius: 1rem !important;
+	background: rgba(17, 24, 39, 0.98) !important;
+	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35) !important;
+	pointer-events: auto !important;
+}

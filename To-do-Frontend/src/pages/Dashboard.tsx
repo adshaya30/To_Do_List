@@ -17,14 +17,27 @@ const Dashboard = () => {
 
   // Load tasks from localStorage on mount
   useEffect(() => {
-    const storedTasks = localStorage.getItem('tasks');
-    if (storedTasks) {
-      try {
-        setTasks(JSON.parse(storedTasks));
-      } catch (error) {
-        console.error('Failed to load tasks:', error);
+    const loadTasks = () => {
+      const storedTasks = localStorage.getItem('tasks');
+      if (storedTasks) {
+        try {
+          setTasks(JSON.parse(storedTasks));
+        } catch (error) {
+          console.error('Failed to load tasks:', error);
+        }
       }
-    }
+    };
+
+    loadTasks();
+
+    const handleTasksUpdated = () => loadTasks();
+    window.addEventListener('tasks-updated', handleTasksUpdated);
+    window.addEventListener('storage', handleTasksUpdated);
+
+    return () => {
+      window.removeEventListener('tasks-updated', handleTasksUpdated);
+      window.removeEventListener('storage', handleTasksUpdated);
+    };
   }, []);
 
   const handleCreateTask = (newTask: any) => {
@@ -36,6 +49,7 @@ const Dashboard = () => {
     const updatedTasks = [...tasks, taskWithId];
     setTasks(updatedTasks);
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+    window.dispatchEvent(new Event('tasks-updated'));
     console.log('New task created:', taskWithId);
     setIsModalOpen(false);
   };
@@ -90,7 +104,7 @@ const Dashboard = () => {
         <div className="space-y-4">
           {recentTasks.map((task) => (
             <div key={task.id} className="flex items-center gap-4 pb-4 border-b border-gray-100 last:border-b-0">
-              <div className={`w-3 h-3 rounded-full ${task.status === 'completed' ? 'bg-green-500' : 'bg-red-500'}`}></div>
+              <div className={`w-3 h-3 rounded-full ${task.status === 'completed' ? 'bg-[#03396c]' : 'bg-red-500'}`}></div>
               <span className="text-gray-700">{task.title}</span>
             </div>
           ))}
